@@ -10,6 +10,25 @@ class Auth0 {
       scope: "openid profile"
     });
     this.login = this.login.bind(this);
+    this.handleAuthenication = this.handleAuthenication.bind(this);
+  }
+
+  handleAuthenication() {
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult);
+          resolve();
+        } else if (err) {
+          reject(err);
+          console.log(err);
+        }
+      });
+    });
+  }
+
+  setSession() {
+    // save tokens!!
   }
 
   login() {
