@@ -1,15 +1,9 @@
 @import "./shared/fonts";
+@import "./index";
 
 html,
 body {
+  height: 100%;
+  width: 100%;
   font-family: "Montserrat", "Helvetica";
-}
-
-.home-header {
-  color: red;
-  font-size: 40px;
-}
-a {
-  color: blue;
-  font-size: 20px;
 }
